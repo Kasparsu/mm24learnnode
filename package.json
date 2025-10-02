@@ -12,6 +12,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "bootstrap": "^5.3.8",
     "webpack": "^5.101.3"
   },
   "devDependencies": {
