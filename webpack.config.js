@@ -49,6 +49,10 @@ export default {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/views/index.njk",
+      templateParameters: {
+        name: 'Kaspar',
+        fruits: ['apple', 'cherry', 'mango', 'pineapple'],
+      }
     }),
     new HtmlWebpackPlugin({
       filename: "about.html",
