@@ -20,7 +20,7 @@ defineProps(['disabled', 'building'])
                 <nav class="level is-mobile">
                     <div class="level-left">
                         <a class="level-item has-text-info" aria-label="reply">
-                            🍪 {{ building.price }}
+                            🍪 {{ building.price.toLocaleString() }}
                         </a>
                     </div>
                 </nav>
