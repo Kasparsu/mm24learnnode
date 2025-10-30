@@ -46,10 +46,12 @@ let buildings = ref([
 ]);
 
 function buyBuilding(building) {
+    console.log("buyBuilding called for:", building.name, "current count:", building.count);
     if(cookies.value >= building.price) {
         cookies.value -= building.price;
         cps.value += building.cps;
         building.count++;
+        console.log("bought building:", building.name, "new count:", building.count);
     }
 }
 
