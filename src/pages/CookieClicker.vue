@@ -2,15 +2,15 @@
 import { ref } from 'vue';
 import BuildingButton from '../components/BuildingButton.vue';
 
-let cookies = ref(1000000);
-let cps = ref(0);
+let cookies = ref(0);
+let cps = ref(0.4);
 
 setInterval(() => {
     cookies.value += cps.value;
 }, 1000);
 
 let buildings = ref([
-    {name: 'Cursor', icon: '👆🏻', cps: 0.4, price: 15, count: 0,
+    {name: 'Cursor', icon: '👆🏻', cps: 0.4, price: 10, count: 0,
         building: null
     },
     {name: 'Grandma',icon: '👵🏻', cps: 2, price: 100, count: 0,
@@ -46,12 +46,12 @@ let buildings = ref([
 ]);
 
 function buyBuilding(building) {
-    console.log("buyBuilding called for:", building.name, "current count:", building.count);
     if(cookies.value >= building.price) {
         cookies.value -= building.price;
         cps.value += building.cps;
         building.count++;
         console.log("bought building:", building.name, "new count:", building.count);
+        building.price = Math.floor(building.price * 1.15);
     }
 }
 
@@ -70,13 +70,10 @@ function buyBuilding(building) {
         </div>
         <div class="column has-background-warning">
             <h1 class="has-text-centered has-text-dark">Buildings</h1>
-            <!-- for each building where count is more than 1 create a div where it will render building background and image times count  -->
             <div v-for="building in buildings.filter(b => b.count > 0 && b.building)" :key="building.name" class="block mb-5">
-                
                 <div :style="{ background: `url(${building.building?.backgroundURL})` }">
                     <img :src="building.building?.imageURL" alt="" v-for="i in building.count" :key="i" />
                 </div>
-                
             </div>
         </div>
         <div class="column has-background-info">
