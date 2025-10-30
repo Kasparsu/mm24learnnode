@@ -1,8 +1,15 @@
 <script setup>
-defineProps(['disabled', 'building'])
+const props = defineProps(['disabled', 'building'])
+const emit = defineEmits(['click'])
+
+function handleClick() {
+    if (!props.disabled) {
+        emit('click')
+    }
+}
 </script>
 <template>
-    <div @click="$emit('click')" class="box has-background-primary-invert mr-3 is-clickable is-unselectable"
+    <div @click="handleClick" class="box has-background-primary-invert mr-3 is-clickable is-unselectable"
         :class="{ 'is-disabled': disabled }">
         <article class="media">
             <div class="media-left">
@@ -20,7 +27,7 @@ defineProps(['disabled', 'building'])
                 <nav class="level is-mobile">
                     <div class="level-left">
                         <a class="level-item has-text-info" aria-label="reply">
-                            🍪 {{ building.price }}
+                            🍪 {{ building.price.toLocaleString() }}
                         </a>
                     </div>
                 </nav>
