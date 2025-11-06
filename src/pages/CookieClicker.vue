@@ -12,6 +12,7 @@ setInterval(() => {
 let buildings = ref([
     {name: 'Cursor', icon: '👆🏻', cps: 0.1, price: 15, count: 0},
     {name: 'Grandma',icon: '👵🏻', cps: 1, price: 100, count: 0},
+    {name: 'Wizard tower',icon: '🪄', cps: 1, price: 1000000, count: 0},
 ]);
 
 function buyBuilding(building) {
