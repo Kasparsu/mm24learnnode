@@ -15,6 +15,12 @@ onMounted(() => {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
     var marker = L.marker([59.42690, 24.74344]).addTo(map);
+            var marker = L.marker([59.436478605858575, 24.74987540485131]).addTo(map);
+    var polygon = L.polygon([
+        [59.43652190918893, 24.749894180313476],
+        [59.43647144546002, 24.749714472318434],
+        [59.43645439688594, 24.749968611609926],
+    ]).addTo(map);
 });
 
 watch(() => zoom, (zoom, oldZoom) => {

@@ -12,6 +12,8 @@ setInterval(() => {
 let buildings = ref([
     {name: 'Cursor', icon: '👆🏻', cps: 0.1, price: 15, count: 0},
     {name: 'Grandma',icon: '👵🏻', cps: 1, price: 100, count: 0},
+    {name: 'Evil Cookie',icon: '👿', cps: 10, price: 10000, count: 0, isEvil: true},
+    
 ]);
 
 function buyBuilding(building) {
@@ -38,7 +40,14 @@ function buyBuilding(building) {
             test
         </div>
         <div class="column has-background-info">
-           <BuildingButton v-for="building in buildings" :building="building" :disabled="cookies<building.price" @click="buyBuilding(building)"></BuildingButton>
+           <BuildingButton
+            v-for="building in buildings"
+            :key="building.name"
+            :building="building"
+            :disabled="cookies < building.price"
+            :evil="building.isEvil"
+            @click="buyBuilding(building)"
+          ></BuildingButton>
         </div>
     </div>
 </template>
