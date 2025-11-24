@@ -37,7 +37,15 @@ function buyBuilding(building) {
             </div>
         </div>
         <div class="column has-background-warning">
-            test
+            <h2 class="is-size-5">Buildings</h2>
+            <div v-for="b in buildings" :key="b.name" style="margin:8px 0;">
+                <strong>{{ b.count }}</strong>
+                <span style="margin-left:6px">{{ b.name }}</span>
+                <div style="font-size:1.5em; color:#333;">
+                    {{ b.count }} x {{ Number(b.cps).toFixed(1) }} cps
+                    - total {{ (b.count * b.cps).toFixed(1) }} cps
+                </div>
+            </div>
         </div>
         <div class="column has-background-info">
            <BuildingButton
