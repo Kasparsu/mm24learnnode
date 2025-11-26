@@ -6,6 +6,9 @@ import UpgradeButton from '../components/UpgradeButton.vue';
 let cookies = ref(0);
 let cps = ref(0);
 
+window.cookies = cookies;
+window.cps = cps;
+
 setInterval(() => {
     cookies.value += cps.value;
 }, 1000);
@@ -69,6 +72,10 @@ function buyUpgrade(upgrade) {
 </template>
 
 <style>
+*{
+    margin: 0;
+}
+
 .column{
     width: calc(100vw/3);
 }
