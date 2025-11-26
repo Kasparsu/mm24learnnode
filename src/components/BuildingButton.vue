@@ -2,7 +2,7 @@
 defineProps(['disabled', 'building'])
 </script>
 <template>
-    <div @click="$emit('click')" class="box has-background-primary-invert mr-3 is-clickable is-unselectable"
+    <div class="box has-background-primary-invert mr-3 is-clickable is-unselectable"
         :class="{ 'is-disabled': disabled }">
         <article class="media">
             <div class="media-left">
