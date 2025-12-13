@@ -1,17 +1,44 @@
-import inquirer from "inquirer";
+import inquirer from 'inquirer';
 
-let answers = await inquirer.prompt([
-    {
-        type: 'input',
-        name: 'name',
-        message: 'What is your name?',
-    },
-    {
-        type: 'number',
-        name: 'age',
-        message: 'What is your age?',
-    },
+const answers = await inquirer.prompt([
+  {
+    type: 'input',
+    name: 'name',
+    message: 'What is your name?',
+  },
+  {
+    type: 'number',
+    name: 'age',
+    message: 'How old are you?',
+  },
+  {
+    type: 'confirm',
+    name: 'student',
+    message: 'Are you a student?',
+  },
+  {
+    type: 'list',
+    name: 'color',
+    message: 'Choose your favorite color',
+    choices: ['Red', 'Green', 'Blue'],
+  },
+  {
+    type: 'checkbox',
+    name: 'hobbies',
+    message: 'Select your hobbies',
+    choices: ['Music', 'Sports', 'Games', 'Coding'],
+  },
+  {
+    type: 'password',
+    name: 'password',
+    message: 'Enter password',
+  },
+  {
+    type: 'editor',
+    name: 'bio',
+    message: 'Write something about yourself',
+  },
 ]);
 
-console.log(`Hello ${answers.name}!!!!`);
-console.log(`You are ${answers.age} years old!`);
+console.log('\nRESULT:');
+console.log(answers);
